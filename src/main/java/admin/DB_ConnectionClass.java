@@ -18,7 +18,7 @@ public class DB_ConnectionClass {
 
     String password = "password";
     String username = "root";
-    String url = "jdbc:mysql://localhost/music";
+    String url = "jdbc:mysql://localhost:1527/music";
 
 //    private Statement stmt;
     public Connection connect() throws Exception {

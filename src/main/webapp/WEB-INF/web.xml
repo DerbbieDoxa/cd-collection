@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="5.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
     <servlet>
-        <servlet-name>HandleGenre</servlet-name>
-        <servlet-class>controllers.HandleGenre</servlet-class>
+        <servlet-name>HandleGenreOps</servlet-name>
+        <servlet-class>controllers.HandleGenreOps</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HandleGenre</servlet-name>
-        <url-pattern>/genre</url-pattern>
+        <servlet-name>HandleGenreOps</servlet-name>
+        <url-pattern>/genres</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
