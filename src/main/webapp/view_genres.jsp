@@ -3,6 +3,7 @@
     Created on : May 16, 2023, 11:05:50 AM
     Author     : iamdveloper
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="view-genre">
     <h1>List of all Genre
@@ -13,15 +14,25 @@
 
 
     <div class="genre-list">
-        <% if (request.getAttribute("genres") != null) { %>
-        <h1>Data available:</h1>
-        <ul>
-            <l1>Data gere</l1>
-        </ul>
-        <% } else { %>
-        <p>${error}.</p>
-        <% } %>
 
+        <c:if test="${not empty genres}">
+
+          
+                <c:forEach var="col" items="${genres}">
+           
+                    <div class="single-genre">
+           
+                        <div class="genre-cover"></div>
+                        <p>${col.getGenreName()}</p>
+                    </div>
+                </c:forEach>
+      
+
+        </c:if>
+
+        <c:if test="${not empty error}">
+            <h1>${error}</h1>
+        </c:if>
     </div>
 
 

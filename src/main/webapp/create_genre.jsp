@@ -5,7 +5,7 @@
 --%>
 
 <div class="create-genre">
-    <form>
+    <form method='post' action="${pageContext.request.contextPath}/genres">
         <label for="genre_name">Create Genre</label>
         <input name="genre_name" placeholder="Enter genre name" required="true"/>
         

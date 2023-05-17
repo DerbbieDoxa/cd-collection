@@ -30,23 +30,61 @@ public class HandleGenreOps extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         AdminClass ad_genre = new AdminClass();
+        RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 
-        try {
+        if (request.getMethod() == "POST") {
 
-            ArrayList<Genre> allGenre = ad_genre.getAll();
+//            Get genre name
+            String name = request.getParameter("genre_name");
 
-            request.setAttribute("genres", allGenre);
+            if (!name.isEmpty()) {
+                try {
+//                    Save data here
+                    Genre genre = new Genre(name);
+                    int insertRowsAffected = ad_genre.insertGenre(genre);
 
-            RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
-            rd.forward(request, response);
-        } catch (Exception e) {
-            request.setAttribute("error", e.getMessage());
-            RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
-            rd.forward(request, response);
-        } 
+//                    Get updated data here
+                    ArrayList<Genre> allGenre = ad_genre.getAll();
+
+                    request.setAttribute("genres", allGenre);
+
+                    request.setAttribute("message", "Data saved successfully!");
+
+                    rd.forward(request, response);
+                } catch (Exception e) {
+                    request.setAttribute("message", "Error saving data: " + e.getMessage());
+                    rd.forward(request, response);
+                }
+
+            } else {
+                request.setAttribute("message", "Genre name cannot be empty");
+                rd.forward(request, response);
+            }
+
+//            Handle Get requests
+        } else if (request.getMethod() == "GET") {
+
+            try {
+
+                ArrayList<Genre> allGenre = ad_genre.getAll();
+
+                request.setAttribute("genres", allGenre);
+
+                rd.forward(request, response);
+            } catch (Exception e) {
+                request.setAttribute("error", e.getMessage());
+                rd.forward(request, response);
+            }
+
+//            Handle Delete
+        } else if (request.getMethod() == "DELETE") {
+//            Handle update
+        } else if (request.getMethod() == "PUT") {
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

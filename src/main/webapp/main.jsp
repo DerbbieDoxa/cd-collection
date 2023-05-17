@@ -9,12 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/styles.css" />
         <title>CD Collection</title>
     </head>
+    
     <body>
         <main class="main-content">
-            <!-- This will coontain the create genre and display the available genres -->
+            <!-- This will contain the create genre and display the available genres -->
             <div class="create-genre-container">
                 <jsp:include page="create_genre.jsp" flush="true"></jsp:include>        
             </div>

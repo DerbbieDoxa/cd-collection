@@ -18,10 +18,15 @@ public class DB_ConnectionClass {
 
     String password = "password";
     String username = "root";
-    String url = "jdbc:mysql://localhost:3306/music";
+    String url = "jdbc:mysql://localhost:3306/music?autoReconnect=true&useSSL=false";
 
 //    private Statement stmt;
     public Connection connect() throws Exception {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+        }
+
         try {
             if (conn == null || conn.isClosed()) {
 
@@ -37,7 +42,7 @@ public class DB_ConnectionClass {
 
     public static void closeConnection() throws Exception {
         try {
-            if(conn != null && !conn.isClosed()){
+            if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
         } catch (SQLException e) {
