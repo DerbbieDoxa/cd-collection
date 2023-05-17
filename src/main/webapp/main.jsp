@@ -13,17 +13,20 @@
         <link rel="stylesheet" href="./assets/styles.css" />
         <title>CD Collection</title>
     </head>
-    
+
     <body>
         <main class="main-content">
             <!-- This will contain the create genre and display the available genres -->
+         
             <div class="create-genre-container">
                 <jsp:include page="create_genre.jsp" flush="true"></jsp:include>        
-            </div>
+                </div>
 
-            <div class="view-genre-container">
+                <div class="view-genre-container">
                 <jsp:include page="view_genres.jsp" flush="true"></jsp:include>
             </div>
         </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

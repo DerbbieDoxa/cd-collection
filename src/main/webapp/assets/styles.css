@@ -50,7 +50,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     text-align: center;
 }
 
-.create-genre button {
+.save-btn {
     padding: 10px 5px;
     background-color: blue;
     color: white;
